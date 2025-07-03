@@ -7,6 +7,7 @@ import ApplyPage from './pages/Apply'
 import Services from './pages/Services';
 import Blogs from './pages/Blogs';
 import ProjectsPage from './pages/Projects';
+import Team from './pages/Team';
 
 
 
@@ -21,6 +22,7 @@ function App() {
       <Route path="/services" element={<Services />} />
       <Route path="/blog" element={<Blogs />} />
       <Route path="/projects" element={<ProjectsPage />} />
+      <Route path="/team" element={<Team/>}/>
     </Routes>
   )
 }

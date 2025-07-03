@@ -72,7 +72,8 @@ const About = () => {
           </a>
         </div>
       </section>
-      <section className="relative bg-primary bg-opacity-90 text-white py-16 text-center">
+
+      {/*<section className="relative bg-primary bg-opacity-90 text-white py-16 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-10">
           You Always Get the Best Guidance
         </h2>
@@ -89,9 +90,9 @@ const About = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section>*/}
 
-      <section className="py-16 bg-white text-center">
+      {/*<section className="py-16 bg-white text-center">
         <h2 className="text-3xl font-bold mb-4">Our Clients Says</h2>
         <p className="max-w-2xl mx-auto text-gray-600 mb-12">
           We take great pride in the trust our clients place in us. Their feedback reflects not only our commitment to excellence but also the meaningful partnerships we build. At Quantum, we continuously strive to deliver solutions that exceed expectations and drive long-term success.
@@ -124,7 +125,7 @@ const About = () => {
             ></span>
           ))}
         </div>
-      </section>
+      </section>*/}
 
       < Footer />
     </div >

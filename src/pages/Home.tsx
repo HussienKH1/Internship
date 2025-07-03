@@ -30,9 +30,22 @@ const Home = () => {
     return (
         <div className="font-inter">
             <Header />
-
+            
+            <section
+                className="w-full h-screen bg-cover bg-center relative flex items-center justify-center text-white"
+                style={{ backgroundImage: "url('/hero-bg.jpg')" }} // replace with your image path
+            >
+                <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                <div className="relative z-10 text-left max-w-xl px-6">
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4">Home</h1>
+                    <p className="text-lg font-semibold leading-relaxed text-white">
+                        Bridgeview Business Partners is a global people operation (HR), leadership development and training consulting firm, providing successful outcomes to US and global nonprofits humanitarian and education organizations, technology, and renewal energy startups.
+                    </p>
+                </div>
+            </section>
+            
             {/* Hero Swiper Section */}
-            <section className="w-full h-[80vh]">
+             {/* <section className="w-full h-[80vh]">
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
                     slidesPerView={1}
@@ -61,10 +74,10 @@ const Home = () => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            </section>
+            </section>*/}
 
             {/* Services Section */}
-            <section className="px-6 md:px-12 py-20 bg-white">
+            {/*<section className="px-6 md:px-12 py-20 bg-white">
                 <div className="grid md:grid-cols-3 gap-12 items-start">
                     <div className="md:col-span-2 grid sm:grid-cols-2 gap-6">
                         {services.map((service, i) => (
@@ -88,10 +101,10 @@ const Home = () => {
                         </button>
                     </div>
                 </div>
-            </section>
+            </section>*/}
 
             {/* Stats Section */}
-            <section className="relative bg-primary bg-opacity-90 text-white py-16 text-center">
+            {/*<section className="relative bg-primary bg-opacity-90 text-white py-16 text-center">
                 <h2 className="text-2xl md:text-3xl font-bold mb-10">
                     You Always Get the Best Guidance
                 </h2>
@@ -108,10 +121,10 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-            </section>
+            </section>*/}
 
             {/* Best Services Section */}
-            <section className="px-6 md:px-12 py-20 bg-white text-center">
+            {/*<section className="px-6 md:px-12 py-20 bg-white text-center">
                 <h2 className="text-3xl font-bold text-[#0d1b2a] mb-4">Our Best Services</h2>
                 <p className="text-[#4b5563] max-w-2xl mx-auto mb-12">
                     Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.
@@ -130,10 +143,10 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-            </section>
+            </section>*/}
 
             {/* Blog Section */}
-            <section className="px-6 md:px-12 py-20 bg-white text-center">
+            {/*<section className="px-6 md:px-12 py-20 bg-white text-center">
                 <h2 className="text-3xl font-bold text-[#0d1b2a] mb-4">Recent Blog</h2>
                 <p className="text-[#4b5563] max-w-2xl mx-auto mb-12">
                     Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.
@@ -167,7 +180,7 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-            </section>
+            </section>*/}
 
             <Footer />
         </div>

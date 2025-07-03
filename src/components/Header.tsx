@@ -23,6 +23,7 @@ const Header = () => {
 
     const navItems = [
         { label: 'Home', to: '/' },
+        { label: 'Team', to: '/team' },
         { label: 'About', to: '/about' },
         { label: 'Projects', to: '/projects' },
         { label: 'Services', to: '/services' },
@@ -80,7 +81,7 @@ const Header = () => {
                 </ul>
                 <div className="flex items-center gap-4">
                     {/* Search box */}
-                    <div className="flex items-center bg-[#132238] px-4 py-2 rounded-full">
+                    {/*<div className="flex items-center bg-[#132238] px-4 py-2 rounded-full">
                         <input
                             type="text"
                             placeholder="Search"
@@ -89,7 +90,7 @@ const Header = () => {
                         <span className="ml-2">
                             <FontAwesomeIcon icon={faMagnifyingGlass} className="text-primary" />
                         </span>
-                    </div>
+                    </div>*/}
 
                     {/* Clean Join Us Button */}
                     <Link
