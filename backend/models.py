@@ -118,3 +118,13 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"Message from {self.name} ({self.email})"
+
+class TeamMember(models.Model):
+    name = models.CharField(max_length=100)
+    photo = models.ImageField(upload_to='team/')
+    description = models.TextField()
+    linkedin = models.URLField(blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name

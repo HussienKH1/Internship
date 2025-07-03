@@ -12,7 +12,8 @@ from backend.views import (
     JobViewSet,
     JobApplicationViewSet,
     ProjectViewSet, 
-    ContactMessageViewSet
+    ContactMessageViewSet,
+    TeamMemberViewSet
 )
 
 
@@ -29,7 +30,7 @@ router.register(r'jobs', JobViewSet)
 router.register(r'applications', JobApplicationViewSet)
 router.register(r'projects', ProjectViewSet) 
 router.register(r'contactmessages', ContactMessageViewSet)
-
+router.register(r'teammembers', TeamMemberViewSet)
 
 
 urlpatterns = [

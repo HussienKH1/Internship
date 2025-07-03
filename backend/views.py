@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage
+from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage, TeamMember
 from .serializers import (
     HeroSlideSerializer,
     ServiceSerializer,
@@ -13,7 +13,8 @@ from .serializers import (
     JobSerializer,
     JobApplicationSerializer,
     ProjectSerializer,
-    ContactMessageSerializer
+    ContactMessageSerializer,
+    TeamMemberSerializer
 )
 from django.core.mail import send_mail
 
@@ -81,3 +82,8 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
             recipient_list=['abkh3579@email.com'],  # Change to your target email
             fail_silently=False,
         )
+
+
+class TeamMemberViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = TeamMember.objects.all()
+    serializer_class = TeamMemberSerializer

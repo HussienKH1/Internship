@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage
+from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage, TeamMember
 
 @admin.register(HeroSlide)
 class HeroSlideAdmin(admin.ModelAdmin):
@@ -69,3 +69,8 @@ class ProjectAdmin(admin.ModelAdmin):
 class ContactMessageAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'subject', 'submitted_at')
     search_fields = ('name', 'email', 'subject', 'message')
+
+@admin.register(TeamMember)
+class TeamMemberAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)

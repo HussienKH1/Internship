@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage
+from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage, TeamMember
 
 class HeroSlideSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(use_url=True)
@@ -69,3 +69,8 @@ class ContactMessageSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         # Custom logic can be added here if needed
         return super().create(validated_data)
+
+class TeamMemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TeamMember
+        fields = '__all__'
