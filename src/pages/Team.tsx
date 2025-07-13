@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PageHeader from '../components/PageHeader';
 import axios from 'axios';
+import PageHeaderbg from '../assets/bg.jpg'
 
 type TeamMember = {
     id: number;
@@ -27,7 +28,7 @@ const Team = () => {
     return (
         <div className="font-inter">
             <Header />
-            <PageHeader title="Team" />
+            <PageHeader title="Team" bgImageUrl={PageHeaderbg}/>
             <section
                 className="min-h-screen bg-cover bg-center bg-no-repeat py-20"
                 style={{ backgroundImage: "url('/team-bg.jpg')" }}

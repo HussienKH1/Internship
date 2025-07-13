@@ -8,6 +8,7 @@ import CountUp from "../components/Countup";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 import PageHeader from '../components/PageHeader';
+import PageHeaderbg from '../assets/bg.jpg'
 
 const API_BASE = 'http://127.0.0.1:8000/api';
 const About = () => {
@@ -33,7 +34,7 @@ const About = () => {
   return (
     <div className="font-inter">
       <Header />
-      <PageHeader title="About" />
+      <PageHeader title="About" bgImageUrl={PageHeaderbg} />
       <section className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Left side */}
         <div className="md:col-span-2">

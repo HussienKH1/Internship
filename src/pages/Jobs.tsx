@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PageHeader from '../components/PageHeader';
+import PageHeaderbg from '../assets/bg.jpg'
 
 const API_BASE = 'http://127.0.0.1:8000/api';
 
@@ -22,7 +23,7 @@ const JobScreen: React.FC = () => {
     return (
         <div className="font-inter">
             <Header />
-            <PageHeader title="Careers" />
+            <PageHeader title="Careers" bgImageUrl={PageHeaderbg}/>
 
             {/* Job Listings Section */}
             <section className="max-w-6xl mx-auto px-6 py-16">

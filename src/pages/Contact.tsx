@@ -8,9 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
+import PageHeaderbg from '../assets/bg.jpg'
 
 const API_BASE = 'http://localhost:8000/api';
-
 const Contact = () => {
     const [contact, setContact] = React.useState<ContactInfo | null>(null);
     React.useEffect(() => {
@@ -54,7 +54,7 @@ const Contact = () => {
     return (
         <div className="font-inter">
             <Header />
-            <PageHeader title="Contact Us" />
+            <PageHeader title="Contact Us" bgImageUrl={PageHeaderbg}/>
 
             <section className="py-12 bg-white text-[#dc2626]">
                 <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 text-center divide-y md:divide-y-0 md:divide-x divide-white/30">
