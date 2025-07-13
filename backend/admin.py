@@ -31,7 +31,7 @@ class BlogPostAdmin(admin.ModelAdmin):
 
 @admin.register(ContactInfo)
 class ContactInfoAdmin(admin.ModelAdmin):
-    list_display = ('name','address', 'phone', 'email', 'facebook', 'twitter', 'instagram', 'linkedin')
+    list_display = ('name','city', 'phone', 'email', 'facebook', 'twitter', 'instagram', 'linkedin')
     search_fields = ('address', 'phone', 'email')
 
 @admin.register(AboutUs)

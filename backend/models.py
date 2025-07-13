@@ -41,14 +41,20 @@ class BlogPost(models.Model):
 
 
 class ContactInfo(models.Model):
-    name = models.CharField(max_length=255, default='Unnamed')
-    address = models.CharField(max_length=255)
-    phone = models.CharField(max_length=20)
+    name = models.CharField(max_length=255)
+    city = models.CharField(max_length=100,blank=True, null=True)
+    street = models.CharField(max_length=255,blank=True, null=True)
     email = models.EmailField()
+    phone = models.CharField(max_length=20)
     facebook = models.URLField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
-    instagram = models.URLField(blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)
+
+    @property
+    def address(self):
+        return f"{self.city}, {self.street}"
+
     def __str__(self):
         return f"Contact Info: {self.address}, {self.phone}, {self.email}"
    
