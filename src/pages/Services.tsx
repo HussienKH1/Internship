@@ -24,7 +24,7 @@ const ServicesPage: React.FC = () => {
             <Header />
             <PageHeader title="Services" />
             <main className="max-w-6xl mx-auto px-6 py-16">
-                <h1 className="text-4xl font-bold text-gray-800 mb-10">Our Services</h1>
+                <h1 className="text-4xl font-bold text-red-600 mb-10">Our Services</h1>
 
                 {loading ? (
                     <p className="text-gray-600">Loading services...</p>
@@ -33,11 +33,16 @@ const ServicesPage: React.FC = () => {
                 ) : (
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {services.map((service) => (
-                            <div key={service.id} className="bg-white shadow p-6 rounded-lg border hover:shadow-lg transition">
-                                <div className="text-4xl text-primary mb-4">
+                            <div
+                                key={service.id}
+                                className="bg-white shadow p-6 rounded-lg border border-red-100 hover:shadow-lg transition group"
+                            >
+                                <div className="text-4xl text-red-600 mb-4">
                                     <i className={service.icon}></i>
                                 </div>
-                                <h2 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h2>
+                                <h2 className="text-xl font-semibold text-red-600 mb-2 group-hover:underline group-hover:decoration-red-600 group-hover:underline-offset-4 transition-all">
+                                    {service.title}
+                                </h2>
                                 <p className="text-gray-600 text-sm">{service.description}</p>
                             </div>
                         ))}

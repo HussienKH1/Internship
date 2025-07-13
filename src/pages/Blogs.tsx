@@ -24,7 +24,7 @@ const BlogsPage: React.FC = () => {
             <Header />
             <PageHeader title="Blog" />
             <main className="max-w-6xl mx-auto px-6 py-16">
-                <h1 className="text-4xl font-bold text-gray-800 mb-10">Latest Blog Posts</h1>
+                <h1 className="text-4xl font-bold text-red-600 mb-10">Latest Blog Posts</h1>
 
                 {loading ? (
                     <p className="text-gray-600">Loading blog posts...</p>
@@ -33,10 +33,12 @@ const BlogsPage: React.FC = () => {
                 ) : (
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                         {blogs.map((post) => (
-                            <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                            <div key={post.id} className="bg-white border border-red-100 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
                                 <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
                                 <div className="p-5">
-                                    <h2 className="text-xl font-semibold text-gray-800 mb-2">{post.title}</h2>
+                                    <h2 className="text-xl font-semibold text-red-600 mb-2 hover:underline hover:decoration-red-600 hover:underline-offset-4 transition-all">
+                                        {post.title}
+                                    </h2>
                                     <p className="text-sm text-gray-500 mb-2">
                                         {post.month} {post.year} · by {post.author}
                                     </p>

@@ -25,6 +25,8 @@ const ProjectsPage: React.FC = () => {
             <PageHeader title="Projects" />
 
             <main className="max-w-6xl mx-auto px-6 py-16">
+                <h1 className="text-4xl font-bold text-red-600 mb-10">Our Featured Projects</h1>
+
                 {loading ? (
                     <p className="text-gray-600">Loading projects...</p>
                 ) : projects.length === 0 ? (
@@ -34,7 +36,7 @@ const ProjectsPage: React.FC = () => {
                         {projects.map((project) => (
                             <div
                                 key={project.id}
-                                className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden"
+                                className="bg-white border border-red-100 rounded-lg shadow hover:shadow-lg transition overflow-hidden"
                             >
                                 <img
                                     src={project.image}
@@ -42,7 +44,7 @@ const ProjectsPage: React.FC = () => {
                                     className="w-full h-48 object-cover"
                                 />
                                 <div className="p-5">
-                                    <h2 className="text-xl font-semibold text-gray-800 mb-1">
+                                    <h2 className="text-xl font-semibold text-red-600 mb-1 hover:underline hover:decoration-red-600 hover:underline-offset-4 transition-all">
                                         {project.title}
                                     </h2>
                                     <p className="text-gray-500 text-sm mb-2">

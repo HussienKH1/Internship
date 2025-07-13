@@ -3,20 +3,38 @@ import { Link, useLocation } from 'react-router-dom';
 
 interface Props {
   title: string;
+  bgImageUrl?: string; // optional background image
 }
 
-const PageHeader: React.FC<Props> = ({ title }) => {
+const PageHeader: React.FC<Props> = ({ title, bgImageUrl }) => {
   const location = useLocation();
   const path = location.pathname.split('/')[1];
 
   return (
-    <div className="bg-[#2f64f5] py-20 text-center text-white">
-      <h1 className="text-4xl font-bold mb-2">{title}</h1>
-      <p className="text-sm">
-        <Link to="/" className="hover:underline">Home</Link>
-        <span className="mx-1">&gt;</span>
-        <span className="font-semibold capitalize">{path}</span>
-      </p>
+    <div
+      className={`relative w-full h-[300px] flex items-center justify-center text-white text-center`}
+      style={{
+        backgroundColor: !bgImageUrl ? '#dc2626' : undefined, // red-600 fallback
+        backgroundImage: bgImageUrl ? `url(${bgImageUrl})` : undefined,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        <h1 className="text-4xl font-bold mb-2">{title}</h1>
+        <p className="text-sm">
+          <Link to="/" className="hover:underline text-white">
+            Home
+          </Link>
+          <span className="mx-2">/</span>
+          <span className="capitalize">{path}</span>
+        </p>
+      </div>
     </div>
   );
 };

@@ -37,11 +37,12 @@ export interface ContactInfo {
     name: string;
     email: string;
     phone: string;
-    address: string;
     facebook: string;
     twitter: string;
     instagram: string;
     linkedin: string;
+    city: string;
+    street: string;
 }
 
 export interface AboutUs {

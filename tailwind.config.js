@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ['Poppins', 'sans-serif'],
+        oswald: ['Oswald', 'sans-serif']
       },
       colors: {
         primary: '#3BB6DA',      // from your logo
