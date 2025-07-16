@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage, TeamMember
+from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage, TeamMember, ProjectImage
 
 @admin.register(HeroSlide)
 class HeroSlideAdmin(admin.ModelAdmin):
@@ -58,11 +58,24 @@ class JobApplicationAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email', 'job__title')
     list_filter = ('job', 'submitted_at')
 
+class ProjectImageInline(admin.TabularInline):
+    model = ProjectImage
+    extra = 1  # number of empty image fields to show by default
+    readonly_fields = ['image_preview']
+
+    def image_preview(self, obj):
+        if obj.image:
+            return f'<img src="{obj.image.url}" style="max-height: 100px;" />'
+        return ""
+    image_preview.allow_tags = True
+    image_preview.short_description = 'Preview'
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'client', 'year')
     search_fields = ('title', 'client')
     list_filter = ('year',)
+    inlines = [ProjectImageInline]
 
 
 @admin.register(ContactMessage)
@@ -74,3 +87,4 @@ class ContactMessageAdmin(admin.ModelAdmin):
 class TeamMemberAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
+

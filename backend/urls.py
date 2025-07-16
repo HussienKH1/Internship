@@ -13,7 +13,7 @@ from backend.views import (
     JobApplicationViewSet,
     ProjectViewSet, 
     ContactMessageViewSet,
-    TeamMemberViewSet
+    TeamMemberViewSet,
 )
 
 

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework import generics
 from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage, TeamMember
 from .serializers import (
     HeroSlideSerializer,
@@ -14,7 +15,7 @@ from .serializers import (
     JobApplicationSerializer,
     ProjectSerializer,
     ContactMessageSerializer,
-    TeamMemberSerializer
+    TeamMemberSerializer,
 )
 from django.core.mail import send_mail
 
@@ -69,7 +70,6 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         message = serializer.save()
         
-        # Send an email
         send_mail(
             subject=f"New Contact Form Message: {message.subject}",
             message=f"""
@@ -79,7 +79,7 @@ class ContactMessageViewSet(viewsets.ModelViewSet):
             Message: {message.message}
             """,
             from_email=None,
-            recipient_list=['abkh3579@email.com'],  # Change to your target email
+            recipient_list=['abkh3579@email.com'],
             fail_silently=False,
         )
 

@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class HeroSlide(models.Model):
     title = models.CharField(max_length=255)
@@ -25,19 +26,30 @@ class BestService(models.Model):
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(help_text="Short summary for blog cards or preview.")
     image = models.ImageField(upload_to='blog_posts/')
     date = models.DateField()
     author = models.CharField(max_length=255)
-    comment_count = models.PositiveIntegerField(default=0)
+
+    # New fields for full blog content
+    intro = models.TextField(help_text="Introduction paragraph", null=True, blank=True)
+    section1_title = models.CharField(max_length=255, null=True, blank=True)
+    section1_content = models.TextField(null=True, blank=True)
+    section2_title = models.CharField(max_length=255, null=True, blank=True)
+    section2_content = models.TextField(null=True, blank=True)
+    section3_title = models.CharField(max_length=255, null=True, blank=True)
+    section3_content = models.TextField(null=True, blank=True)
+    conclusion = models.TextField(help_text="Closing paragraph or takeaway", null=True, blank=True)
+
     def month(self):
-        return self.date.strftime("%B")  # e.g., June
+        return self.date.strftime("%B")
 
     def year(self):
-        return self.date.strftime("%Y")  # e.g., 2025
+        return self.date.strftime("%Y")
 
     def __str__(self):
         return self.title
+
 
 
 class ContactInfo(models.Model):
@@ -107,13 +119,29 @@ class Service(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField()
-    image = models.ImageField(upload_to='projects/')
-    client = models.CharField(max_length=255, blank=True)
-    year = models.PositiveIntegerField(blank=True, null=True)
+    description = models.TextField(blank=True)
+    client = models.CharField(max_length=200, blank=True, null=True)
+    year = models.CharField(max_length=4, blank=True)
+    main_image = models.ImageField(upload_to='projects/', blank=True, null=True)
+
+    # Optional content fields
+    intro = models.TextField(blank=True, null=True)
+    process = models.TextField(blank=True, null=True)
+    result = models.TextField(blank=True, null=True)
+    technologies = models.TextField(blank=True, null=True)
+    conclusion = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.title
+
+class ProjectImage(models.Model):
+    project = models.ForeignKey(Project, related_name='screenshots', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='projects/screenshots/')
+    caption = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return f"Screenshot for {self.project.title}"
+
 
 class ContactMessage(models.Model):
     name = models.CharField(max_length=255)

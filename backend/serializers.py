@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage, TeamMember
+from .models import HeroSlide, Service, Stat, BestService, BlogPost, ContactInfo, AboutUs, Testimonial, Job, JobApplication, Project, ContactMessage, TeamMember, ProjectImage
 
 class HeroSlideSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(use_url=True)
@@ -54,7 +54,14 @@ class JobApplicationSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ('submitted_at',)
 
+class ProjectImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProjectImage
+        fields = ['id', 'image', 'caption']
+
 class ProjectSerializer(serializers.ModelSerializer):
+    screenshots = ProjectImageSerializer(many=True, read_only=True)
+
     class Meta:
         model = Project
         fields = '__all__'
